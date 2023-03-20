@@ -1,8 +1,12 @@
-let num1 = 0;
-let num2 = 0;
-let result;
-let operator;
-let txtNumberResult = "";
+
+equation = {
+    num1: "",
+    num2: "",
+    operator: "",
+    result: 0,
+    justEquated: false
+
+}
 
 
 function operate(num1, num2, operator){
@@ -12,23 +16,35 @@ function operate(num1, num2, operator){
     if(operator == "X") result = num1 * num2;
     if(operator == "/") result = num1 / num2;
 
+    equation.result = result;
     console.log(num1, num2, operator, result);
-    txtResult.value = result;
+    txtResult.value = equation.result;
 
 }
 
 
-
 function operatorClick(){
-    txtNumberResult = "";
-    num1 = txtResult.value;
-    operator = this.textContent;
+    
+    equation.justEquated = false;
+
+    equation.num2 = txtResult.value;
+    
+    equation.num1 = "";
+    equation.operator = this.textContent;
     txtResult.value = "0";
+    console.log(equation);
 };
 
 function numberClick(){
-    txtNumberResult += this.textContent;
-    txtResult.value = txtNumberResult;
+    if(equation.justEquated){
+        equation.num2 = "";
+        equation.num1 = "";
+        equation.justEquated = false;
+
+    }
+    equation.num1 += this.textContent;
+    txtResult.value = equation.num1;
+    
 }
 
 
@@ -39,12 +55,37 @@ btnOperators.forEach(btn => btn.addEventListener("click", operatorClick));
 
 const btnNumbers = document.querySelectorAll("button.number");
 btnNumbers.forEach(btn => btn.addEventListener('click', numberClick))
-
+ 
 const btnEquals = document.querySelector(".btnEquals");
 btnEquals.addEventListener("click", function equals(){
-    num2 = txtResult.value;
-    operate(parseInt(num1), parseInt(num2), operator)
+    equation.num1 = txtResult.value;
+    if(equation.num2 == "" || equation.num1 == ""){
+        console.log(equation);
+        return;
+    }
+   
+    operate(parseFloat(equation.num2), parseFloat(equation.num1), equation.operator);
+    console.log(equation);
+    txtResult.scrollLeft = txtResult.scrollWidth;
+    equation.justEquated = true;
+});
 
+const btnDel = document.querySelector(".btnDelete");
+btnDel.addEventListener(("click"), function del(){
+    txtResult.value = txtResult.value.slice(0, -1)
+    equation.num1 = txtResult.value
+});
+
+const btnAC = document.querySelector(".btnAC");
+btnAC.addEventListener("click", function clear(){
+    equation.num1 = "";
+    equation.num2 = "";
+    equation.operator = "";
+    equation.result = 0;
+    equation.justEquated = false;
+    txtResult.value = "0";
+    
+    console.log(equation);
 });
 
 txtResult.value = "0";
