@@ -87,7 +87,7 @@ btnDel.addEventListener(("click"), function del(){
     txtResult.value = txtResult.value.slice(0, -1)
     equation.num1 = txtResult.value
 
-    updateHistory();
+
 
 });
 
