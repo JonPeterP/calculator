@@ -24,15 +24,14 @@ function operate(num1, num2, operator){
 
 
 function operatorClick(){
-    
     equation.justEquated = false;
-
     equation.num2 = txtResult.value;
-    
     equation.num1 = "";
     equation.operator = this.textContent;
     txtResult.value = "0";
     console.log(equation);
+
+    updateHistory();
 };
 
 function numberClick(){
@@ -44,7 +43,9 @@ function numberClick(){
     }
     equation.num1 += this.textContent;
     txtResult.value = equation.num1;
-    
+
+    updateHistory();
+
 }
 
 
@@ -58,6 +59,15 @@ btnNumbers.forEach(btn => btn.addEventListener('click', numberClick))
  
 const btnEquals = document.querySelector(".btnEquals");
 btnEquals.addEventListener("click", function equals(){
+    if(equation.justEquated){
+        equation.num2 = txtResult.value;
+
+        operate(parseFloat(equation.num2), parseFloat(equation.num1), equation.operator);
+        txtResult.scrollLeft = txtResult.scrollWidth;
+        equation.justEquated = true;
+        updateHistory();
+        return;
+    }
     equation.num1 = txtResult.value;
     if(equation.num2 == "" || equation.num1 == ""){
         console.log(equation);
@@ -68,12 +78,17 @@ btnEquals.addEventListener("click", function equals(){
     console.log(equation);
     txtResult.scrollLeft = txtResult.scrollWidth;
     equation.justEquated = true;
+    updateHistory();
+
 });
 
 const btnDel = document.querySelector(".btnDelete");
 btnDel.addEventListener(("click"), function del(){
     txtResult.value = txtResult.value.slice(0, -1)
     equation.num1 = txtResult.value
+
+    updateHistory();
+
 });
 
 const btnAC = document.querySelector(".btnAC");
@@ -86,6 +101,16 @@ btnAC.addEventListener("click", function clear(){
     txtResult.value = "0";
     
     console.log(equation);
+    updateHistory();
+
 });
+
+function updateHistory(){
+    txtHistory.textContent = equation.num2 + equation.operator + equation.num1;
+    console.log(txtHistory);
+}
+
+const txtHistory = document.querySelector(".txtHistory");
+txtHistory.addEventListener("click", updateHistory);
 
 txtResult.value = "0";
