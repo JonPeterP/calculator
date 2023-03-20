@@ -1,10 +1,12 @@
 body{
-    background-color: #EEEEEE;
+    background-color: #181b24;
     display: flex;
     min-height: 100vh;
 
     align-items: center;
     justify-content: center;
+
+    font-family: "Open-sans", Geneva, Tahoma, sans-serif;
 }
 
 
@@ -19,9 +21,20 @@ button{
     width: 70px;
     height: 70px;
     border-radius: 10px;
-    border: 1 none;
+    border: 2px solid #282828;
 
     margin: 4px;
+    background-color: #282B33;
+    color: #FBFCFC;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+button:hover{
+    background-color: #35363b
+}
+button:active{
+    background-color:#626468;
 }
 
 .divCalculator{
@@ -36,6 +49,7 @@ button{
     padding-top: 36px;
 
     justify-content: center;
+    border: 2px solid #E78386;
 }
 .divResult{
     background-color: #22252D;
@@ -46,21 +60,34 @@ button{
     flex-direction: column;
     color: #FBFCFC;
     padding-right: 24px;
+    padding-left: 24px;
     min-width: 0;
 
     box-sizing: border-box; /*Add padding to width*/
 }
 
-.divResult h1,
+
 .divResult h2{
     margin: 0;
     text-align: right;
+
+    outline: 1 solid red;
+    overflow: hidden;
     
 }
 
 .txtResult{
-    font-size: 36px;
-    font-weight: 700;
+    font-size: 62px;
+    font-weight: 900;
+    text-align: right;
+    background-color: #22252D;
+    border: 0 none;
+
+    color: #FBFCFC;
+}
+
+.txtResult:focus{
+    outline: none;
 }
 
 .txtHistory{
@@ -86,6 +113,11 @@ button{
 
 .btnEquals{
     height: 148px;
+    background-color: #292f3d;
+}
+
+.btnEquals, .btnSubtract, .btnAdd, .btnMultiply, .btnDivide, .btnAC, .btnDelete{
+    color: #E78386;
 }
 
 

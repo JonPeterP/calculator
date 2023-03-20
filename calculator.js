@@ -12,3 +12,7 @@ function operate(num1, num2, operator){
 
 
 console.log(operate(5,6, "/"));
+
+
+const txtResult = document.querySelector(".txtResult")
+txtResult.value = "123456";
