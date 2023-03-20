@@ -2,6 +2,90 @@ body{
     background-color: #EEEEEE;
     display: flex;
     min-height: 100vh;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+}
+
+button{
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    border: 1 none;
+
+    margin: 4px;
+}
+
+.divCalculator{
+    display: flex;
+    width: 350px;
+    height: 600px;
+
+    flex-direction: column;
+
+    border-radius: 30px;
+    background-color: #22252D;
+    padding-top: 36px;
+
+    justify-content: center;
+}
+.divResult{
+    background-color: #22252D;
+    display: flex;
+    width: 350px;
+    height: 100px;
+
+    flex-direction: column;
+    color: #FBFCFC;
+    padding-right: 24px;
+    min-width: 0;
+
+    box-sizing: border-box; /*Add padding to width*/
+}
+
+.divResult h1,
+.divResult h2{
+    margin: 0;
+    text-align: right;
+    
+}
+
+.txtResult{
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.txtHistory{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.divButtons{
+    background-color: #2A2D37;
+    display: flex;
+    margin-top: 24px;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    padding-top: 0px;
+    
+    border-radius: 30px;
+   
+    height: 600px;
+
+}
+
+
+.btnEquals{
+    height: 148px;
 }
 
 
