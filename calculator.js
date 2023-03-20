@@ -67,6 +67,10 @@ btnEquals.addEventListener("click", function equals(){
         equation.justEquated = true;
         updateHistory();
         return;
+    }else if(equation.num1 == "0" && equation.operator == "/"){
+        txtHistory.textContent = "no";
+        txtResult.value = "0";
+        return
     }
     equation.num1 = txtResult.value;
     if(equation.num2 == "" || equation.num1 == ""){
