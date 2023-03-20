@@ -1,0 +1,17 @@
+body{
+    background-color: #EEEEEE;
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/*
+graybg: #EEEEEE;
+Darkmode color:
+top - #22252D
+bottom - #2A2D37
+button - #282B33
+operator-txt - #E78386
+white-txt - #FBFCFC
+
+*/
