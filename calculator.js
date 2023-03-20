@@ -88,11 +88,8 @@ btnEquals.addEventListener("click", function equals(){
 
 const btnDel = document.querySelector(".btnDelete");
 btnDel.addEventListener(("click"), function del(){
-    txtResult.value = txtResult.value.slice(0, -1)
-    equation.num1 = txtResult.value
-
-
-
+    txtResult.value = txtResult.value.slice(0, -1);
+    equation.num1 = txtResult.value;
 });
 
 const btnAC = document.querySelector(".btnAC");
@@ -110,7 +107,7 @@ btnAC.addEventListener("click", function clear(){
 });
 
 function updateHistory(){
-    txtHistory.textContent = equation.num2 + equation.operator + equation.num1;
+    txtHistory.textContent = equation.num2 + " " + equation.operator + " " + equation.num1;
     console.log(txtHistory);
 }
 
